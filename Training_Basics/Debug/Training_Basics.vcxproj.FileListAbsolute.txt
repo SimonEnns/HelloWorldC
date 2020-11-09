@@ -1,0 +1,2 @@
+C:\Users\simon\Documents\Studium\Semester 1\Grundlagen Informatik\Programming\HelloWorldC\Training_Basics\Debug\Training_Basics.exe
+C:\Users\simon\Documents\Studium\Semester 1\Grundlagen Informatik\Programming\HelloWorldC\Training_Basics\Debug\Training_Basics.pdb
