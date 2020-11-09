@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <math.h>
+#include <stdbool.h>
 
 static int avgCounter = 0;
 static double avgValue = 0;
@@ -38,6 +39,7 @@ void a37_fibonacci() {
 	a37_fibonacci();
 }
 
+
 // Aufgabe A38 (Euclidischer Algorithmus)
 int ggt(int a, int b) {
 	if (a == b) return a;
@@ -55,6 +57,7 @@ void a38_euclid_ggt() {
 	a38_euclid_ggt();
 }
 
+
 // Aufgabe A39 (recursive multiplication)
 int getProduct(int a, int b) {
 	if (a == 0 || b == 0) return 0;
@@ -70,6 +73,7 @@ void a39_multiplication() {
 
 	a39_multiplication();
 }
+
 
 // Aufgabe A40 (Potenzieren rekursiv)
 double pow(double x, int n) {
@@ -88,6 +92,7 @@ void a40_power() {
 	a40_power();
 }
 
+
 // Aufgabe A41 (Zinsen)
 double calcCapital(double c, double z, int t) {
 	if (c == 0 || z == 0 || t <= 0) return c;
@@ -105,6 +110,7 @@ void a41_CalcCapital() {
 	a41_CalcCapital();
 }
 
+
 // Aufgabe A42 (avg)
 float avg(double x) {
 	avgCounter++;
@@ -121,6 +127,7 @@ void a42_average() {
 	a42_average();
 }
 
+
 // Aufgabe A43 (Groesse eines Arrays)
 void a43_ArraySize() {
 	int iarr[] = { 2,4,6,0,1,4,1,3,5,7 };
@@ -131,6 +138,7 @@ void a43_ArraySize() {
 	printf("DBL - Size: %i, Elems: %i\n", sizeof(darr), sizeof(darr) / sizeof(darr[0]));
 	printf("STR - Size: %i, Elems: %i\n", sizeof(str), sizeof(str) / sizeof(str[0]));
 }
+
 
 // Aufgabe A44 (compare arrays)
 int areEqual(int a[], int sizeA, int b[], int sizeB) {
@@ -143,7 +151,6 @@ int areEqual(int a[], int sizeA, int b[], int sizeB) {
 
 	return -1;
 }
-
 void a44_CompareArrays() {
 	int a[] = { 1, 2, 3, 4 };
 	int b[] = { 1, 2, 3, 4, 8 };
@@ -154,6 +161,7 @@ void a44_CompareArrays() {
 	printf("LengthB: %i\n", sizeB);
 	printf("Result: %i\n", areEqual(a, sizeA, b, sizeB));
 }
+
 
 // Aufgabe A45 (Zeichen ersetzen)
 void a45_ReplaceChar() {
@@ -176,9 +184,8 @@ void a45_ReplaceChar() {
 			chars[i] = substitute;
 
 	printf("New string: %s", chars);
-
-	a45_ReplaceChar();
 }
+
 
 // Aufgabe A46 (Palindrom)
 void a46_Palindrome() {
@@ -203,8 +210,6 @@ void a46_Palindrome() {
 		printf("The text [%s] is a palindrome!\n", text);
 	else
 		printf("The text [%s] is NOT a palindrome!\n", text);
-
-	a46_Palindrome();
 }
 
 
@@ -236,7 +241,9 @@ void a47_TransposeMatrix() {
 		}
 	}
 
-	// output
+	/*******
+	* OUTPUT
+	*******/
 	printf("\n--PRINT TRANSPOSED MATRIX--\n\n");
 
 	for (int i = 0; i < x; i++)
@@ -257,3 +264,36 @@ void a47_TransposeMatrix() {
 		}
 	}
 }
+
+
+// Aufgabe A48 (bubblesort)
+void printList(int arr[], int length) {
+	for (int i = 0; i < length; i++)
+		printf("arr[%i]: \t%i\n", i, arr[i]);
+}
+int a48_Bubblesort() {
+	int A[] = { 3, 2, 5, 1, 61, 34, 6, 3, 19, 24, 33, 55, 21, 47, 42 };
+	int n = sizeof(A) / sizeof(A[0]);
+
+	if (n == 1) {
+		printList(A, n);
+		return;
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n - i - 1; j++)
+		{
+			if (A[j] > A[j + 1])
+			{
+				int tmp = A[j];
+				A[j] = A[j + 1];
+				A[j + 1] = tmp;
+			}
+		}
+	}
+
+	printList(A, n);
+}
+
+

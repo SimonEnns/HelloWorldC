@@ -1,5 +1,25 @@
 #include <stdio.h>
+#include <math.h>
 
+// print an array
+void printArr(int arr[], int length) {
+	for (int i = 0; i < length; i++)
+		printf("arr[%i]: \t%i\n", i, arr[i]);
+}
+
+
+
+
+/*******************
+*
+* SORTING ALGORITHMS
+*
+*******************/
+
+
+/************
+* BUBBLE SORT
+*/
 void bubbleSort(int myList[], int length) {
 	int bfr = 0;
 
@@ -16,39 +36,51 @@ void bubbleSort(int myList[], int length) {
 		}
 	}
 
-	for (int i = 0; i < length; i++)
+	printList(myList, length);
+}
+
+
+
+/***********
+* MERGE SORT
+*/
+int b[100]; // <-- only a temporary solution
+
+int merge(int A[], int l, int m, int r) {
+	int l1, l2, i;
+
+	for (i = l, l1 = l, l2 = m + 1; l1 <= m && l2 <= r; i++)
 	{
-		printf("%i: %i\n", i, myList[i]);
+		if (A[l1] <= A[l2])
+			b[i] = A[l1++];
+		else
+			b[i] = A[l2++];
+	}
+
+	while (l1 <= m)
+		b[i++] = A[l1++];
+	while (l2 <= r)
+		b[i++] = A[l2++];
+	for (i = l; i <= r; i++)
+		A[i] = b[i];
+}
+
+int mergeSort(int A[], int l, int r) {
+	if (l < r)
+	{
+		int m = (l + r) / 2;
+
+		mergeSort(A, l, m);
+		mergeSort(A, m + 1, r);
+		merge(A, l, m, r);
+	}
+	else
+	{
+		return 0;
 	}
 }
 
-void quickSort(int list[], int first, int last) {
-	int i, j, pivot, tmp;
-
-	if (first < last)
-	{
-		pivot = first;
-		i = first;
-		j = last;
-
-		while (i < j)
-		{
-			while ((list[i] <= list[pivot]) && (i < last)) i++;
-			while (list[j] > list[pivot]) j--;
-
-			if (i < j)
-			{
-				tmp = list[i];
-				list[i] = list[j];
-				list[j] = tmp;
-			}
-		}
-
-		tmp = list[pivot];
-		list[pivot] = list[j];
-		list[j] = tmp;
-
-		quickSort(list, first, j - 1);
-		quickSort(list, j + 1, last);
-	}
+void mergeSortHandler(int A[], int n) {
+	mergeSort(A, 0, n - 1);
+	printArr(A, n);
 }
