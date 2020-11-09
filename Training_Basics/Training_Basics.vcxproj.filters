@@ -18,5 +18,19 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Algorithmen.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Aufgaben.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ALGORITHMEN.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AUFGABEN.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

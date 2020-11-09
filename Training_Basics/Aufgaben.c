@@ -236,6 +236,17 @@ void a47_TransposeMatrix() {
 		}
 	}
 
+	// output
+	printf("\n--PRINT TRANSPOSED MATRIX--\n\n");
+
+	for (int i = 0; i < x; i++)
+	{
+		for (int j = 0; j < y; j++)
+		{
+			printf("START[%i][%i]: %i\n", i, j, M[i][j]);
+		}
+	}
+
 	printf("\n--PRINT TRANSPOSED MATRIX--\n\n");
 
 	for (int i = 0; i < sizeof(T) / sizeof(T[0]); i++)
